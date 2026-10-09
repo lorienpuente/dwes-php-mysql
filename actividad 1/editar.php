@@ -14,9 +14,9 @@
         $_GET['nombre']
     );
 
-
+    
     ?>
-    <h1>Nuevo plato</h1>
+    <h1>Editar plato</h1>
     <form action="update.php" method="POST">
         <label>Nombre:</label>
         <input type="text" name="nombre" value ="<?php echo $plato->nombre; ?>" required>
@@ -28,7 +28,9 @@
             <option value="segundo" <?php echo ($plato->tipo == 'segundo'); ?>>Segundo plato</option>
             <option value="postre" <?php echo ($plato->tipo == 'postre'); ?>>Postre</option>
         </select>
-        <button type="submit">Guardar</button>
+        <label>Ingredientes:</label>
+        <input type="text" name="ingredientes" value="<?php echo $plato->ingredientes; ?>" required>
+        <button type="submit">Actualizar</button>
     </form>
 
 </body>

@@ -21,6 +21,8 @@
             <option value="segundo">Segundo plato</option>
             <option value="postre">Postre</option>
         </select>
+        <label>Ingredientes:</label>
+        <input type="text" name="ingredientes" required>
         <button type="submit">Guardar</button>
     </form>
 </body>
