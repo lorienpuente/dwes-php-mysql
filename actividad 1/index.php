@@ -27,193 +27,169 @@
         $platos = array(
 
     new Plato(
-        "Paella Valenciana",
-        15.50,
-        "Primer plato",
-        [
-            "Arroz",
-            "Pollo",
-            "Conejo",
-            "Judías verdes",
-            "Garrofón",
-            "Tomate",
-            "Azafrán",
-            "Aceite de oliva"
-        ]
-    ),
+    "Paella Valenciana",
+    15.50,
+    "Primer plato",
+    [
+        "Arroz",
+        "Pollo",
+        "Conejo",
+        "Judías verdes"
+    ]
+),
 
-    new Plato(
-        "Gazpacho Andaluz",
-        6.00,
-        "Primer plato",
-        [
-            "Tomate",
-            "pepino",
-            "pimiento",
-            "ceolla",
-            "ajo",
-            "pan",
-            "aceite de oliva",
-            "vinagre",
-            "sal"
-        ]
-    ),
+new Plato(
+    "Gazpacho Andaluz",
+    6.00,
+    "Primer plato",
+    [
+        "Tomate",
+        "Pepino",
+        "Pimiento",
+        "Aceite de oliva",
+        "Vinagre"
+    ]
+),
 
-    new Plato(
-        "Ensalada Mediterránea",
-        7.50,
-        "Primer plato",
-        [
-            "Lechuga",
-            "tomate",
-            "cebolla",
-            "aceitunas",
-            "queso feta",
-            "atún",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Ensalada Mediterránea",
+    7.50,
+    "Primer plato",
+    [
+        "Lechuga",
+        "Tomate",
+        "Aceitunas",
+        "Queso feta",
+        "Atún"
+    ]
+),
 
-    new Plato(
-        "Sopa de Marisco",
-        9.00,
-        "Primer plato",
-        [
-            "Gambas",
-            "mejillones",
-            "calamar",
-            "pescado",
-            "tomate",
-            "ceolla",
-            "ajo",
-            "caldo de pescado"
-        ]
-    ),
+new Plato(
+    "Sopa de Marisco",
+    9.00,
+    "Primer plato",
+    [
+        "Gambas",
+        "Mejillones",
+        "Calamar",
+        "Tomate",
+        "Caldo de pescado"
+    ]
+),
 
-    new Plato(
-        "Croquetas de Jamón",
-        6.50,
-        "Primer plato",
-        [
-            "Jamón serrano",
-            "leche",
-            "harina",
-            "mantequilla",
-            "ceolla",
-            "huevo",
-            "pan rallado"
-        ]
-    ),
+new Plato(
+    "Croquetas de Jamón",
+    6.50,
+    "Primer plato",
+    [
+        "Jamón serrano",
+        "Leche",
+        "Harina",
+        "Mantequilla",
+        "Pan rallado"
+    ]
+),
 
-    new Plato(
-        "Carrileras de Cerdo",
-        8.50,
-        "Segundo plato",
-        [
-            "Carrilleras de cerdo",
-            "cebolla",
-            "zanahoria",
-            "ajo",
-            "vino tinto",
-            "caldo de carne",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Carrilleras de Cerdo",
+    8.50,
+    "Segundo plato",
+    [
+        "Carrilleras de cerdo",
+        "Cebolla",
+        "Zanahoria",
+        "Vino tinto",
+        "Aceite de oliva"
+    ]
+),
 
-    new Plato(
-        "Pulpo a la Gallega",
-        15.00,
-        "Segundo plato",
-        [
-            "Pulpo",
-            "patata",
-            "pimentón dulce",
-            "pimentón picante",
-            "sal gruesa",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Pulpo a la Gallega",
+    15.00,
+    "Segundo plato",
+    [
+        "Pulpo",
+        "Patata",
+        "Pimentón dulce",
+        "Sal gruesa",
+        "Aceite de oliva"
+    ]
+),
 
-    new Plato(
-        "Entrecot de Ternera",
-        18.00,
-        "Segundo plato",
-        [
-            "Entrecot de ternera",
-            "sal",
-            "pimienta negra",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Entrecot de Ternera",
+    18.00,
+    "Segundo plato",
+    [
+        "Entrecot de ternera",
+        "Sal",
+        "Pimienta negra",
+        "Aceite de oliva"
+    ]
+),
 
-    new Plato(
-        "Merluza a la Plancha",
-        13.50,
-        "Segundo plato",
-        [
-            "Merluza",
-            "ajo",
-            "perejil",
-            "limón",
-            "sal",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Merluza a la Plancha",
+    13.50,
+    "Segundo plato",
+    [
+        "Merluza",
+        "Ajo",
+        "Perejil",
+        "Limón",
+        "Aceite de oliva"
+    ]
+),
 
-    new Plato(
-        "Pollo al Horno",
-        12.00,
-        "Segundo plato",
-        [
-            "Pollo",
-            "patata",
-            "cebolla",
-            "ajo",
-            "romero",
-            "limón",
-            "sal",
-            "aceite de oliva"
-        ]
-    ),
+new Plato(
+    "Pollo al Horno",
+    12.00,
+    "Segundo plato",
+    [
+        "Pollo",
+        "Patata",
+        "Cebolla",
+        "Romero",
+        "Aceite de oliva"
+    ]
+),
 
-    new Plato(
-        "Tarta de queso",
-        5.50,
-        "Postre",
-        [
-            "Queso crema",
-            "galletas",
-            "mantequilla",
-            "azúcar",
-            "huevos",
-            "nata"
-        ]
-    ),
+new Plato(
+    "Tarta de Queso",
+    5.50,
+    "Postre",
+    [
+        "Queso crema",
+        "Galletas",
+        "Mantequilla",
+        "Azúcar",
+        "Huevos"
+    ]
+),
 
-    new Plato(
-        "Flan de Huevo",
-        4.50,
-        "Postre",
-        [
-            "Huevos",
-            "leche",
-            "azúcar",
-            "caramelo"
-        ]
-    ),
+new Plato(
+    "Flan de Huevo",
+    4.50,
+    "Postre",
+    [
+        "Huevos",
+        "Leche",
+        "Azúcar",
+        "Caramelo"
+    ]
+),
 
-    new Plato(
-        "Arroz con Leche",
-        4.00,
-        "Postre",
-        [
-            "Arroz",
-            "leche",
-            "azúcar",
-            "canela",
-            "piel de limón"
-        ]
-    )
+new Plato(
+    "Arroz con Leche",
+    4.00,
+    "Postre",
+    [
+        "Arroz",
+        "Leche",
+        "Azúcar",
+        "Canela"
+    ]
+)
 
 );
 
