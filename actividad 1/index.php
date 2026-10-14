@@ -24,174 +24,44 @@
     </form>
     <ul>
     <?php
-        $platos = array(
 
-    new Plato(
-    "Paella Valenciana",
-    15.50,
-    "Primer plato",
-    [
-        "Arroz",
-        "Pollo",
-        "Conejo",
-        "Judías verdes"
-    ]
-),
+            $query = "
+        SELECT
+            p.nombre,
+            p.precio,
+            p.tipo,
+            i.nombre AS ingrediente
+        FROM plato p
+        LEFT JOIN plato_ingrediente pi
+            ON p.nombre = pi.nombre_plato
+        LEFT JOIN ingredientes i
+            ON pi.nombre_ingrediente = i.nombre
+        ORDER BY p.nombre
+    ";
 
-new Plato(
-    "Gazpacho Andaluz",
-    6.00,
-    "Primer plato",
-    [
-        "Tomate",
-        "Pepino",
-        "Pimiento",
-        "Aceite de oliva",
-        "Vinagre"
-    ]
-),
+    $stmt = $conector->query($query);
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-new Plato(
-    "Ensalada Mediterránea",
-    7.50,
-    "Primer plato",
-    [
-        "Lechuga",
-        "Tomate",
-        "Aceitunas",
-        "Queso feta",
-        "Atún"
-    ]
-),
+    $platos = [];
 
-new Plato(
-    "Sopa de Marisco",
-    9.00,
-    "Primer plato",
-    [
-        "Gambas",
-        "Mejillones",
-        "Calamar",
-        "Tomate",
-        "Caldo de pescado"
-    ]
-),
+    foreach ($resultados as $row) {
+        $nombre = $row['nombre'];
 
-new Plato(
-    "Croquetas de Jamón",
-    6.50,
-    "Primer plato",
-    [
-        "Jamón serrano",
-        "Leche",
-        "Harina",
-        "Mantequilla",
-        "Pan rallado"
-    ]
-),
+        if (!isset($platos[$nombre])) {
+            $platos[$nombre] = new Plato(
+                $row['nombre'],
+                $row['precio'],
+                $row['tipo'],
+                []
+            );
+        }
 
-new Plato(
-    "Carrilleras de Cerdo",
-    8.50,
-    "Segundo plato",
-    [
-        "Carrilleras de cerdo",
-        "Cebolla",
-        "Zanahoria",
-        "Vino tinto",
-        "Aceite de oliva"
-    ]
-),
+        if ($row['ingrediente'] !== null) {
+            $platos[$nombre]->ingredientes[] =
+                $row['ingrediente'];
+        }
+    }
 
-new Plato(
-    "Pulpo a la Gallega",
-    15.00,
-    "Segundo plato",
-    [
-        "Pulpo",
-        "Patata",
-        "Pimentón dulce",
-        "Sal gruesa",
-        "Aceite de oliva"
-    ]
-),
-
-new Plato(
-    "Entrecot de Ternera",
-    18.00,
-    "Segundo plato",
-    [
-        "Entrecot de ternera",
-        "Sal",
-        "Pimienta negra",
-        "Aceite de oliva"
-    ]
-),
-
-new Plato(
-    "Merluza a la Plancha",
-    13.50,
-    "Segundo plato",
-    [
-        "Merluza",
-        "Ajo",
-        "Perejil",
-        "Limón",
-        "Aceite de oliva"
-    ]
-),
-
-new Plato(
-    "Pollo al Horno",
-    12.00,
-    "Segundo plato",
-    [
-        "Pollo",
-        "Patata",
-        "Cebolla",
-        "Romero",
-        "Aceite de oliva"
-    ]
-),
-
-new Plato(
-    "Tarta de Queso",
-    5.50,
-    "Postre",
-    [
-        "Queso crema",
-        "Galletas",
-        "Mantequilla",
-        "Azúcar",
-        "Huevos"
-    ]
-),
-
-new Plato(
-    "Flan de Huevo",
-    4.50,
-    "Postre",
-    [
-        "Huevos",
-        "Leche",
-        "Azúcar",
-        "Caramelo"
-    ]
-),
-
-new Plato(
-    "Arroz con Leche",
-    4.00,
-    "Postre",
-    [
-        "Arroz",
-        "Leche",
-        "Azúcar",
-        "Canela"
-    ]
-)
-
-);
 
 
         $tipo = $_GET['tipo'] ?? '';
