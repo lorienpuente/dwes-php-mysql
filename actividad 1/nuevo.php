@@ -17,9 +17,9 @@
         <input type="number" name="precio" step="0.01" required>
         <label>Tipo:</label>
         <select name="tipo" required>
-            <option value="primero">Primer plato</option>
-            <option value="segundo">Segundo plato</option>
-            <option value="postre">Postre</option>
+            <option value="Primer plato">Primer plato</option>
+            <option value="Segundo plato">Segundo plato</option>
+            <option value="Postre">Postre</option>
         </select>
         <p>Ingredientes</p>
         <label>Arroz</label>

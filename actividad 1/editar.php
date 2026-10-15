@@ -8,25 +8,28 @@
 <body>
     <?php
     include_once 'nav.php';
-    include_once 'plato.php';
+    include 'plato.php';
+    include 'bd.php';
 
-    $plato = new Plato(
-        $_GET['nombre']
-    );
 
+    $nombre = $_GET['nombre'];
+    $sql = 'SELECT * FROM platos WHERE nombre = "'.$nombre.'"';
+    $stmt = $conector->query($sql);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $plato = new Plato($results[0]['nombre'], $results[0]['precio'], $results[0]['tipo']);
     
     ?>
     <h1>Editar plato</h1>
     <form action="update.php" method="POST">
         <label>Nombre:</label>
-        <input type="text" name="nombre" value ="<?php echo $plato->nombre; ?>" required>
+        <input type="text" name="nombre" value ="<?php echo $plato->nombre; ?>">
         <label>Precio:</label>
-        <input type="number" name="precio" step="0.01" value ="<?php echo $plato->precio; ?>" required>
+        <input type="number" name="precio" step="0.01" value ="<?php echo $plato->precio; ?>">
         <label>Tipo:</label>
         <select name="tipo" required>
-            <option value="primero" <?php echo ($plato->tipo == 'primero'); ?>>Primer plato</option>
-            <option value="segundo" <?php echo ($plato->tipo == 'segundo'); ?>>Segundo plato</option>
-            <option value="postre" <?php echo ($plato->tipo == 'postre'); ?>>Postre</option>
+            <option value="Primer plato" <?php echo ($plato->tipo == 'Primer plato'); ?>>Primer plato</option>
+            <option value="Segundo plato" <?php echo ($plato->tipo == 'Segundo plato'); ?>>Segundo plato</option>
+            <option value="Postre" <?php echo ($plato->tipo == 'Postre'); ?>>Postre</option>
         </select>
         <p>Ingredientes</p>
         <label>Arroz</label>
