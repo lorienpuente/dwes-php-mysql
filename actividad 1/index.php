@@ -27,6 +27,8 @@
     <ul>
     <?php
 
+        $tipo = $_GET['tipo'] ?? '';
+        $buscar = $_GET['buscar'] ?? '';
 
             $query = "
         SELECT
@@ -39,11 +41,17 @@
             ON p.nombre = pi.nombre_plato
         LEFT JOIN ingrediente i
             ON pi.nombre_ingrediente = i.nombre
+        WHERE (:tipo = '' OR p.tipo = :tipo)
+        AND (:buscar = '' OR i.nombre = :buscar)
         ORDER BY p.nombre
     ";
 
 
-    $stmt = $conector->query($query);
+    $stmt = $conector->prepare($query);
+    $stmt->execute([
+    ':tipo' => $tipo,
+    ':buscar' => $buscar
+    ]);
     $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -85,7 +93,7 @@
                 echo '<p>' . $plato->tipo . '</p>';
                 echo '<form action="ver.php" method="GET">';
                 echo '<input type="hidden" name="nombre" value="' . $plato->nombre . '">';
-                echo '<button type="submit">Ver ingredientes</button>';
+                echo '<button type="submit">Ver datos</button>';
                 echo '</form>';
                 echo '<form action="borrar.php" method="POST">';
                 echo '<input type="hidden" name="nombre" value="' . $plato->nombre . '">';
